@@ -82,11 +82,7 @@ const StudentLanding = ({userId, userName}) => {
 
     useEffect (() =>{
     const fetchAllForms = async ()=>{
-<<<<<<< HEAD
-        const response = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/form_api/view')
-=======
         const response = await axios.get('http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/form_api/view')
->>>>>>> fa6b31b49ef401064b720104836868a5a0c4c4e8
         setFormData(response.data)
     }
     fetchAllForms()
@@ -123,11 +119,7 @@ const StudentLanding = ({userId, userName}) => {
 
     async function fetchTable(id, data) {
         console.log(id)
-<<<<<<< HEAD
-        const response = await axios.get("https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/student_api/transactions/" + id.toString() + "/" + data)
-=======
         const response = await axios.get("http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/student_api/transactions/" + id.toString() + "/" + data)
->>>>>>> fa6b31b49ef401064b720104836868a5a0c4c4e8
         if (response){
             
             setTableData(response.data)
@@ -139,11 +131,7 @@ const StudentLanding = ({userId, userName}) => {
     useEffect (() =>{
         const fetchNotifications = async ()=>{
             try{
-<<<<<<< HEAD
-            const response = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/notification_api/get/' + userId.toString(), {credentials: 'same-origin'})
-=======
             const response = await axios.get('http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/notification_api/get/' + userId.toString(), {credentials: 'same-origin'})
->>>>>>> fa6b31b49ef401064b720104836868a5a0c4c4e8
             setNotifData(response.data)
         }
         catch(err){
@@ -172,11 +160,7 @@ const StudentLanding = ({userId, userName}) => {
       },[])
 
     async function getImagevalue(){
-<<<<<<< HEAD
-        const response = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/form_api/get/' + 123060723591000)
-=======
         const response = await axios.get('http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/form_api/get/' + 123060723591000)
->>>>>>> fa6b31b49ef401064b720104836868a5a0c4c4e8
         console.log(response)
         return response.data
       }
@@ -200,11 +184,7 @@ const StudentLanding = ({userId, userName}) => {
 
 
     async function viewDocumentDetails(id) {
-<<<<<<< HEAD
-        const response = await axios.get("https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/student_api/transaction_details/" + id.toString())
-=======
         const response = await axios.get("http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/student_api/transaction_details/" + id.toString())
->>>>>>> fa6b31b49ef401064b720104836868a5a0c4c4e8
         console.log(response)
         if (response){
             setDocumentDetails(response.data[0])
