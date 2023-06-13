@@ -68,18 +68,18 @@ const Login = (props) => {
     const signIn = async (user) => {
       console.log(user.email)
       sessionStorage.setItem("email", user.email)
-      axios.post('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/login_api/checkUser', {
+      axios.post('http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/login_api/checkUser', {
         email: user.email
       }).then((response) => {
         console.log(response)
       })
-      const response1 = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/login_api/getRole/' + user.email)
+      const response1 = await axios.get('http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/login_api/getRole/' + user.email)
         console.log(response1)
         console.log("yes")
         sessionStorage.setItem("role", response1.data[0].role)
         console.log(response1.data[0].role)
       if(response1.data[0].role !== 'admin'){
-        const responses = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/id_api/student_id/' + user.email)
+        const responses = await axios.get('http://ec2-3-26-146-89.ap-southeast-2.compute.amazonaws.com:5000/id_api/student_id/' + user.email)
         console.log(responses)
         sessionStorage.setItem("id", responses.data[0].user_id)
         props.fetchData(response1.data[0].role)
@@ -134,7 +134,7 @@ const Login = (props) => {
                           </button> */}
                           <div id='googleLogin' className='googleLogin'></div>
 
-                      <div className='login-text-3'> If you encounter any problems with logging in through your UP Mail, send a message to loremipsum.com</div>
+                      <div className='login-text-3'> If you encounter any problems with logging in through your UP Mail, send a message to ocs_cos.upcebu@up.edu.ph</div>
                     </div>
                   </div>
                 </div>
@@ -167,13 +167,13 @@ const Login = (props) => {
                             <img alt="footer-component-icon-3"
                             src={telephoneIcon}
                             className="footer-component-icon-3"/>
-                            <p className='footer-component-text-7'>09123456789 / 123-456</p>
+                            <p className='footer-component-text-7'>232 8185 / 232 8187</p>
                         </div>
                         <div className="contact-container-2">
                             <img alt="footer-component-icon-4"
                             src={envelopeIcon}
                             className="footer-component-icon-4"/>
-                            <p className='footer-component-text-8'>loremipsum@up.edu.ph</p>     
+                            <p className='footer-component-text-8'>ocs_cos.upcebu@up.edu.ph</p>     
                         </div>
                     </div>    
                 </div>
