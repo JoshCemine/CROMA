@@ -56,7 +56,7 @@ const StudentLanding = ({userId, userName}) => {
 
     // async function getUserID(data){
     //     console.log(data)
-    //     const response = await axios.get('http://localhost:5000/id_api/student_id/' + data)
+    //     const response = await axios.get('https://localhost:5000/id_api/student_id/' + data)
     //     console.log(response)
     //     console.log(response.data[0].user_id)
     //     const fetchedId = await response.data[0].user_id
@@ -70,7 +70,7 @@ const StudentLanding = ({userId, userName}) => {
     // useEffect (() =>{
     //     const fetchStudentDetails = async ()=>{
     //         console.log(id)
-    //         const response = await axios.get('http://localhost:5000/student_api/getDetails/' + id)
+    //         const response = await axios.get('https://localhost:5000/student_api/getDetails/' + id)
     //         setStudentDetails(response.data[0])
     //         console.log(studentDetails)
     //     }
@@ -82,14 +82,14 @@ const StudentLanding = ({userId, userName}) => {
 
     useEffect (() =>{
     const fetchAllForms = async ()=>{
-        const response = await axios.get('http://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/form_api/view')
+        const response = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/form_api/view')
         setFormData(response.data)
     }
     fetchAllForms()
     }, [])
 
     // async function getRegistered(data){
-    //     const response = await axios.get('http://localhost:5000/student_api/getDetails/'+ data)
+    //     const response = await axios.get('https://localhost:5000/student_api/getDetails/'+ data)
     //     sessionStorage.setItem("registered", response.data[0].registered)
     // }
 
@@ -105,7 +105,7 @@ const StudentLanding = ({userId, userName}) => {
     // useEffect (() =>{
     // const fetchTable = async (data)=>{
     //     try{
-    //         const response = await axios.get('http://localhost:5000/student_api/transactions/' + 4, data)
+    //         const response = await axios.get('https://localhost:5000/student_api/transactions/' + 4, data)
     //         setTableData(response.data)
     //         setNumTransactions(response.data.length)
     //     }
@@ -119,7 +119,7 @@ const StudentLanding = ({userId, userName}) => {
 
     async function fetchTable(id, data) {
         console.log(id)
-        const response = await axios.get("http://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/student_api/transactions/" + id.toString() + "/" + data)
+        const response = await axios.get("https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/student_api/transactions/" + id.toString() + "/" + data)
         if (response){
             
             setTableData(response.data)
@@ -131,7 +131,7 @@ const StudentLanding = ({userId, userName}) => {
     useEffect (() =>{
         const fetchNotifications = async ()=>{
             try{
-            const response = await axios.get('http://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/notification_api/get/' + userId.toString(), {credentials: 'same-origin'})
+            const response = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/notification_api/get/' + userId.toString(), {credentials: 'same-origin'})
             setNotifData(response.data)
         }
         catch(err){
@@ -160,7 +160,7 @@ const StudentLanding = ({userId, userName}) => {
       },[])
 
     async function getImagevalue(){
-        const response = await axios.get('http://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/form_api/get/' + 123060723591000)
+        const response = await axios.get('https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/form_api/get/' + 123060723591000)
         console.log(response)
         return response.data
       }
@@ -184,7 +184,7 @@ const StudentLanding = ({userId, userName}) => {
 
 
     async function viewDocumentDetails(id) {
-        const response = await axios.get("http://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/student_api/transaction_details/" + id.toString())
+        const response = await axios.get("https://ec2-3-26-217-82.ap-southeast-2.compute.amazonaws.com:5000/student_api/transaction_details/" + id.toString())
         console.log(response)
         if (response){
             setDocumentDetails(response.data[0])
